@@ -1,0 +1,63 @@
+@PetShop_HostAddress = https://localhost:7252
+
+GET {{PetShop_HostAddress}}/products
+
+###
+
+GET {{PetShop_HostAddress}}/products/1
+
+###
+
+POST {{PetShop_HostAddress}}/products
+Content-Type: application/json
+
+{
+  "name": "Produto Teste",
+  "image": "images/teste.png",
+  "description": "Um produto de teste",
+  "variants": [
+    {
+      "size": "1 kg",
+      "price": 10.0
+    },
+    {
+      "size": "2 kg",
+      "price": 20.0
+    },
+    {
+      "size": "3 kg",
+      "price": 30.0
+    } 
+  ]
+}
+
+###
+
+PUT {{PetShop_HostAddress}}/products/1
+Content-Type: application/json
+
+{
+  "name": "Produto Teste editado",
+  "image": "images/teste_editado.png",
+  "description": "Um produto de teste editado",
+  "variants": [
+    {
+      "size": "1.5 kg",
+      "price": 15.0
+    },
+    {
+      "size": "2.5 kg",
+      "price": 25.0
+    },
+    {
+      "size": "3.5 kg",
+      "price": 35.0
+    } 
+  ]
+}
+
+###
+
+DELETE {{PetShop_HostAddress}}/products/1
+
+###
