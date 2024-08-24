@@ -9,17 +9,12 @@ public static class EndpointRouteBuilderExtensions
         var productsEndpoints = builder.MapGroup("/products");
         var productWithIdEndpoints = productsEndpoints.MapGroup("/{id:int}");
 
-        productsEndpoints.MapGet("", ProductsHandler.GetProductsAsync)
-            .WithOpenApi();
-        productsEndpoints.MapPost("", ProductsHandler.CreateProductAsync)
-            .WithOpenApi();
+        productsEndpoints.MapGet("", ProductsHandler.GetProductsAsync);
+        productsEndpoints.MapPost("", ProductsHandler.CreateProductAsync);
 
         productWithIdEndpoints.MapGet("", ProductsHandler.GetProductByIdAsync)
-            .WithName(nameof(ProductsHandler.GetProductByIdAsync))
-            .WithOpenApi();
-        productWithIdEndpoints.MapPut("", ProductsHandler.UpdateProductAsync)
-            .WithOpenApi();
-        productWithIdEndpoints.MapDelete("", ProductsHandler.DeleteProductAsync)
-            .WithOpenApi();
+            .WithName(nameof(ProductsHandler.GetProductByIdAsync));
+        productWithIdEndpoints.MapPut("", ProductsHandler.UpdateProductAsync);
+        productWithIdEndpoints.MapDelete("", ProductsHandler.DeleteProductAsync);
     }
 }
